@@ -1,40 +1,45 @@
-<div class="main-container">
-  <section class="title clr-row clr-justify-content-center">
-    <h2 class="welcome">Inscription</h2>
-  </section>
-  <div class="signup clr-row clr-justify-content-center">
-    <form clrForm>
-      <clr-input-container>
-        <label>Nom</label>
-        <input clrInput type="text" name="nom" required/>
-      </clr-input-container>
-      <clr-input-container>
-        <label>Prénom</label>
-        <input clrInput type="text" name="prenom" required/>
-      </clr-input-container>
-      <clr-input-container>
-        <label >Mail</label>
-        <input clrInput type="email" name="mail" required/>
-      </clr-input-container>
-      <clr-password-container>
-        <label >Mot de passe</label>
-        <input type="password" name="password" clrPassword required/>
-      </clr-password-container>
-      <clr-date-container>
-        <label >Date de naissance</label>
-        <input type="date" clrDate name="naissance" required/>
-      </clr-date-container>
-      <clr-radio-container>
-        <clr-radio-wrapper>
-          <input type="radio" clrRadio value="jaide" name="aled" required/>
-          <label>J'aide</label>
-        </clr-radio-wrapper>
-        <clr-radio-wrapper>
-          <input type="radio" clrRadio value="aled" name="aled" required/>
-          <label>ALED</label>
-        </clr-radio-wrapper>
-      </clr-radio-container>
-      <button type="submit" class="btn btn-primary">S'inscrire</button>
-  </form>
-  </div>
+<div class="clr-row clr-justify-content-center" style="margin-top: 2%">
+  <h1>Inscription</h1>
 </div>
+<div class="clr-row clr-justify-content-center" style="margin-top: 2%">
+  <form clrForm>
+    <clr-input-container>
+      <label>Nom</label>
+      <input clrInput name="nom" required type="text"/>
+    </clr-input-container>
+    <clr-input-container>
+      <label>Prénom</label>
+      <input clrInput name="prenom" required type="text"/>
+    </clr-input-container>
+    <clr-input-container>
+      <label>Mail</label>
+      <input clrInput name="mail" required type="email"/>
+    </clr-input-container>
+    <clr-password-container>
+      <label>Mot de passe</label>
+      <input clrPassword name="password" required type="password"/>
+    </clr-password-container>
+    <clr-date-container>
+      <label>Date de naissance</label>
+      <input clrDate name="naissance" required type="date"/>
+    </clr-date-container>
+    <clr-radio-container>
+      <clr-radio-wrapper>
+        <input clrRadio name="aled" required type="radio" value="jaide"/>
+        <label>J'aide</label>
+      </clr-radio-wrapper>
+      <clr-radio-wrapper>
+        <input clrRadio name="aled" required type="radio" value="aled"/>
+        <label>ALED</label>
+      </clr-radio-wrapper>
+    </clr-radio-container>
+    <div>
+      <label>Photo de profil</label>
+      <input type="file" name="myFile">
+    </div>
+    <div style="margin-top: 2%">
+      <button class="btn btn-primary" type="submit">S'inscrire</button>
+    </div>
+  </form>
+</div>
+
