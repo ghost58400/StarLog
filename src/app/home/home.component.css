@@ -1,6 +1,6 @@
 .btn-success {
   text-transform: none;
-  font-size: 30px;
+  font-size: 2.5em;
   background-color: #00b381;
   border-color: white;
   border-width: 3px;
@@ -23,7 +23,7 @@
 
 .btn-success-outline {
   text-transform: none;
-  font-size: 30px;
+  font-size: 2.5em;
   border-color: #00b381;
   border-width: 3px;
   background-color: white;
