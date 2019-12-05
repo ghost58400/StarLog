@@ -9,13 +9,15 @@ import { HomeComponent } from './home/home.component';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { ErrorComponent } from './error/error.component';
+import { MatcherComponent } from './matcher/matcher.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SignupComponent,
     HomeComponent,
-    ErrorComponent
+    ErrorComponent,
+    MatcherComponent
   ],
   imports: [
     BrowserModule,
