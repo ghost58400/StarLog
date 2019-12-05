@@ -43,3 +43,11 @@
 .btn-success-outline:active {
   transform: scale(1);
 }
+
+.banniere {
+  box-shadow: 0 1em 2em 0 rgba(0,0,0,1);
+}
+
+.ALED {
+  margin-top: -300px
+}
