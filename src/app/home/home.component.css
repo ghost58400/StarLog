@@ -49,5 +49,6 @@
 }
 
 .ALED {
-  margin-top: -300px
+  position: absolute;
+  left: 0;
 }
