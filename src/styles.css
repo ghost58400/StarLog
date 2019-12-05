@@ -5,4 +5,6 @@ img {
 
 body {
   background-color: #2F3136;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
