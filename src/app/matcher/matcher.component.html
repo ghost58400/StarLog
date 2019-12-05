@@ -1,0 +1,93 @@
+<div class="modal"  [ngClass]="{'hidden': !isMatch}">
+        <div class="modal-dialog" role="dialog" aria-hidden="true">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button aria-label="Close" class="close" type="button" (click)="closeModal()">
+                        <clr-icon aria-hidden="true" shape="close"></clr-icon>
+                    </button>
+                    <h3 class="modal-title">Bravo, vous avez un match !</h3>
+                </div>
+                <div class="modal-body" style="margin-bottom:10px;">
+                    <p>{{match.Nom}} et vous avez des connaissances à échanger, prenez contact dès maintenant !</p>
+                </div>
+                <div class="shadowBox">
+                        <div href="..." class="">
+                            <div class="card-img">
+                                <img [src]="match.imgSource" alt="..." />
+                            </div>
+                            <div class="card-block">
+                                <h3>{{match.Nom}}</h3>
+                                <p class="card-text">
+                                    {{match.Desc}}
+                                </p>
+                            </div>
+                        </div>
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-success btnGoMatch" aria-label="done">
+                        Envoyer un message
+                </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-backdrop" [ngClass]="{'hidden': !isMatch}" aria-hidden="true"></div>
+<div class="mmHead">
+    <h1>Match-Making</h1>
+</div>
+<div class="clr-row">
+    <div class="clr-col-10 clr-offset-1 whiteInner">
+        <div class="alert-success-parent">
+                <div class="alert alert-success" [ngClass]="{'hidden': !showLikeAlert}" role="alert">
+                        <div class="alert-items">
+                            <div class="alert-item static">
+                                <div class="alert-icon-wrapper">
+                                    <clr-icon class="alert-icon" shape="check-circle"></clr-icon>
+                                </div>
+                                <span class="alert-text">like effectué</span>
+                            </div>
+                        </div>
+                    </div>
+        </div>
+        <div class="settings">
+                <clr-icon shape="cog" size="35" class="is-solid"></clr-icon>
+        </div>
+        <div class="outOfProfile" [ngClass]="{'hidden': !listIsEmpty}">
+                <h1>Désoler,</h1>
+                <span>Malheureusement nous n'avons plus de profils à vous proposer pour le moment, revenez bientôt pour en trouver encore plus.</span>
+        </div>
+        <div class="clr-row" [ngClass]="{'hidden': listIsEmpty}">
+            <h2 class="ville">{{show.Ville}}</h2>
+        </div>
+        <div class="clr-row" [ngClass]="{'hidden': listIsEmpty}">
+            <div class="clr-col-2 flexContainer clr-offset-1">
+                    <button (click)="next()" type="button" class="btn btn-icon btn-danger" aria-label="error">
+                            <clr-icon shape="times" size="35" class="is-solid"></clr-icon>
+                        </button>
+            </div>
+            <div class="clr-col-6 shadowBox">
+                <div href="..." class="">
+                    <div class="card-img">
+                        <img [src]="show.imgSource" alt="..." />
+                    </div>
+                    <div class="card-block">
+                        <h3>{{show.Nom}}</h3>
+                        <p class="card-text">
+                            {{show.Desc}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="clr-col-2 flexContainer">
+                    <button (click)="like()" type="button" class="btn btn-icon btn-success" aria-label="done">
+                            <clr-icon shape="heart" size="35" class="is-solid"></clr-icon>
+                    </button>
+            </div>
+        </div>    
+        <div class="" style="text-align: right;">
+                <button type="button" class="btn btn-icon btn-success btnGoMatch" aria-label="done">
+                        Mes Matchs
+                </button>
+        </div>
+    </div>
+</div>

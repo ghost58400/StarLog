@@ -1,0 +1,85 @@
+.mainMatcher{
+    background-color:darkgray;
+}
+.flexContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.flexContainer .btn{
+    height: 70px;
+    width: 70px;
+    border-radius: 70px;
+    padding: 0;
+    margin: 0;
+    border-color: #00c890;
+    background-color: #00c890;
+}
+.flexContainer .btn:hover{
+    height: 70px;
+    width: 70px;
+    border-radius: 70px;
+    padding: 0;
+    margin: 0;
+    border-color: #00a174;
+    background-color: #00a174;
+}
+.whiteInner{
+    background-color:white;
+    margin-top:50px;
+    margin-bottom: 50px;
+    padding: 20px 50px;
+    position: relative;
+}
+.mmHead{
+    color: white;
+    text-align: center;
+    margin-top: 30px;
+}
+.mmHead h1{
+    color:white;
+    font-weight: 900;
+}
+.settings{
+    position: absolute;
+    right: 50px;
+    cursor: pointer;
+}
+.ville{
+    font-weight: 700;
+}
+.btnGoMatch{
+    border-radius: 50px;
+    border-color: #00c890;
+    background-color: #00c890;
+}
+.btnGoMatch:hover{
+    border-color: #00a174;
+    background-color: #00a174;
+}
+.alert-success-parent{
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    text-align: center;
+}
+.alert-success{
+    display: inline-block;
+}
+.hidden{
+    display: none;
+}
+.outOfProfile{
+    text-align: center;
+    padding:40px 50px;
+}
+.shadowBox{
+    padding: 0;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+.modal-title{
+    font-weight: 800;
+}
+.modal-header{
+    text-align: center;
+}
