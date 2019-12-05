@@ -1,1 +1,40 @@
-<p>signup works!</p>
+<div class="main-container">
+  <section class="title clr-row clr-justify-content-center">
+    <h2 class="welcome">Inscription</h2>
+  </section>
+  <div class="signup clr-row clr-justify-content-center">
+    <form clrForm>
+      <clr-input-container>
+        <label>Nom</label>
+        <input clrInput type="text" name="nom" required/>
+      </clr-input-container>
+      <clr-input-container>
+        <label>Prénom</label>
+        <input clrInput type="text" name="prenom" required/>
+      </clr-input-container>
+      <clr-input-container>
+        <label >Mail</label>
+        <input clrInput type="email" name="mail" required/>
+      </clr-input-container>
+      <clr-password-container>
+        <label >Mot de passe</label>
+        <input type="password" name="password" clrPassword required/>
+      </clr-password-container>
+      <clr-date-container>
+        <label >Date de naissance</label>
+        <input type="date" clrDate name="naissance" required/>
+      </clr-date-container>
+      <clr-radio-container>
+        <clr-radio-wrapper>
+          <input type="radio" clrRadio value="jaide" name="aled" required/>
+          <label>J'aide</label>
+        </clr-radio-wrapper>
+        <clr-radio-wrapper>
+          <input type="radio" clrRadio value="aled" name="aled" required/>
+          <label>ALED</label>
+        </clr-radio-wrapper>
+      </clr-radio-container>
+      <button type="submit" class="btn btn-primary">S'inscrire</button>
+  </form>
+  </div>
+</div>
