@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+img {
+  width: 100%;
+}
+
+body {
+  background-color: #2F3136;
+  overflow-x: hidden;
+  overflow-y: auto;
+  font-family: 'Noto Sans', sans-serif !important;
+}
