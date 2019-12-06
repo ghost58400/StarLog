@@ -1,7 +1,7 @@
 body { 
     margin:0;
     padding:0;
-    background: url(img/porte_fond.png) no-repeat center fixed; 
+    background: url(static/img/porte_fond.png) no-repeat center fixed; 
     background-size: cover;
     overflow: hidden;
 }
@@ -42,7 +42,7 @@ body {
 
     margin-left: -32%;
     margin-top: -0.9%;
-    background:url(./img/congrat.png) no-repeat center fixed;
+    background:url(static/img/congrat.png) no-repeat center fixed;
     background-size: cover;
     
 

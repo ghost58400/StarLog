@@ -1,6 +1,6 @@
 import datetime
 import requests
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_from_directory
 from werkzeug.utils import secure_filename
 from time import time
 import re
@@ -14,6 +14,7 @@ app = Flask(__name__)
 db_file = 'C:\\Users\\jojo5\\Desktop\\StarLog\\vars.txt'
 
 tokens = dict()
+
 
 def set_var(name, value):
     with open(db_file, 'r') as file:
@@ -49,7 +50,7 @@ def login():
     if username in users:
         if password == users[username]['password']:
             token = secrets.token_urlsafe()
-            tokens[token]=username
+            tokens[token] = username
             return jsonify({'token': token})
 
     return jsonify({'status': False})
@@ -61,6 +62,7 @@ def logout(token):
     if res == False:
         return jsonify({'status': False})
     return jsonify({'status': True})
+
 
 @app.route("/signup", methods=["POST"])
 def signup():
@@ -76,10 +78,12 @@ def signup():
     users = get_var('users')
     if email in users:
         return jsonify({'status': False})
-    users[email] = {'likes': list(), 'dislikes': list(), 'nom': nom, 'prenom': prenom, 'password': password, 'naissance': naissance, 'aled': aled, 'jaide': jaide, 'codepostal': codepostal, 'description': description}
+    users[email] = {'likes': list(), 'dislikes': list(), 'nom': nom, 'prenom': prenom, 'password': password,
+                    'naissance': naissance, 'aled': aled, 'jaide': jaide, 'codepostal': codepostal,
+                    'description': description, 'pdp': '../static/img/symbole3.svg'}
     set_var('users', users)
     token = secrets.token_urlsafe()
-    tokens[token]=email
+    tokens[token] = email
     return jsonify({'token': token})
 
 
@@ -104,14 +108,15 @@ def tinder(token):
     if res == False:
         return jsonify({'status': False})
     token = secrets.token_urlsafe()
-    tokens[token]=res
+    tokens[token] = res
 
     users = get_var('users')
     user = users[res]
     cp = user['codepostal']
     likes = user['likes']
     dislikes = user['dislikes']
-    tinders = dict(filter(lambda elem: elem[1]['codepostal'] == cp and elem[0] != res and elem[0] not in likes and elem[0] not in dislikes, users.items()))
+    tinders = dict(filter(lambda elem: elem[1]['codepostal'] == cp and elem[0] != res and elem[0] not in likes and elem[
+        0] not in dislikes, users.items()))
     return jsonify({'token': token, 'tinder': tinders})
 
 
@@ -121,7 +126,7 @@ def like(email, token):
     if res == False:
         return jsonify({'status': False})
     token = secrets.token_urlsafe()
-    tokens[token]=res
+    tokens[token] = res
 
     users = get_var('users')
     users[res]['likes'].append(email)
@@ -135,7 +140,7 @@ def dislike(email, token):
     if res == False:
         return jsonify({'status': False})
     token = secrets.token_urlsafe()
-    tokens[token]=res
+    tokens[token] = res
 
     users = get_var('users')
     users[res]['dislikes'].append(email)
@@ -149,7 +154,7 @@ def matchs(token):
     if res == False:
         return jsonify({'status': False})
     token = secrets.token_urlsafe()
-    tokens[token]=res
+    tokens[token] = res
 
     users = get_var('users')
     user = users[res]
@@ -158,34 +163,38 @@ def matchs(token):
     return jsonify({'token': token, 'matchs': matchs})
 
 
-#TODO
+# TODO
 @app.route("/send/<token>", methods=["POST"])
 def send(token):
     res = check_token(token)
     if res == False:
         return jsonify({'status': False})
     token = secrets.token_urlsafe()
-    tokens[token]=res
-
+    tokens[token] = res
 
     email = request.json['email']
     message = request.json['message']
     messages = get_var('messages')
 
-    matchs = dict(filter(lambda elem: elem[0] in likes and res in elem[1]['likes'], users.items()))
-    return jsonify({'token': token, 'matchs': matchs})
+    return jsonify({'token': token})
 
 
 @app.route("/secret", methods=["GET"])
 def secret():
     return send_from_directory('static', 'secret.html')
 
+
 @app.route("/secret_verif", methods=["GET"])
 def secret_verif():
     code = request.args['code']
     if code == '1435':
         return send_from_directory('static', 'ouvert.html')
-    return 'mauvais code'
+    return send_from_directory('static', 'lose.html')
+
+
+@app.route("/upload/<name>", methods=["GET"])
+def photo(name):
+    return send_from_directory('upload', name)
 
 
 if __name__ == '__main__':
