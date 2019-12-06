@@ -1,9 +1,8 @@
-import { Component, OnInit} from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-declare var $: any;
+import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators, NgForm } from '@angular/forms';
+import {ApiService} from "../api.service";
+import {Router} from "@angular/router";
 
-
-const url = "http://localhost/signup";
 
 @Component({
   selector: 'app-signup',
@@ -11,12 +10,13 @@ const url = "http://localhost/signup";
   styleUrls: ['./signup.component.css']
 })
 
-export class SignupComponent implements OnInit {
+export class SignupComponent {
 
   form: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder, private api: ApiService,private router: Router,) {
     // create our form group with all the inputs we will be using in the template
+
     this.form = this.formBuilder.group({
       nom: ['', [Validators.required]],
       prenom: ['', [Validators.required]],
@@ -30,17 +30,16 @@ export class SignupComponent implements OnInit {
     });
   }
 
-  ngOnInit(){
-  }
-  submit() {
+  submit(form: NgForm) {
     if (this.form.valid) {
-      console.log(this.form.value);
-      $.ajax({
-        url : 'send',
-        type : 'POST', // Le type de la requête HTTP, ici devenu POST
-        data : JSON.stringify(this.form.value),
-        dataType : 'html'
-     });
+      this.api.signUp(form).subscribe(
+        res => {
+          this.router.navigate(['/matcher']);
+        },
+        err => {
+          console.log(err);
+        }
+      );
     }
   }
 

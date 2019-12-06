@@ -2,7 +2,7 @@
   <h1>Inscription</h1>
 </div>
 <div class="clr-row clr-justify-content-center" style="margin-top: 5%; margin-right: auto; margin-left: auto">
-  <form (ngSubmit)="submit()" [formGroup]="form" clrForm >
+  <form (ngSubmit)="submit(form.value)" [formGroup]="form" clrForm >
     <clr-input-container>
       <label class="clr-col-auto">Nom</label>
       <input formControlName="nom" class="clr-col-auto" clrInput name="nom" required type="text"/>
