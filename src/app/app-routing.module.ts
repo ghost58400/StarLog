@@ -1,12 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
 import { ErrorComponent } from './error/error.component';
-import { SignupComponent } from "./signup/signup.component";
-import { MatcherComponent } from "./matcher/matcher.component";
+import { SignupComponent } from './signup/signup.component';
+import { MatcherComponent } from './matcher/matcher.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
+  { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'matcher', component: MatcherComponent },
   { path: '404', component: ErrorComponent },

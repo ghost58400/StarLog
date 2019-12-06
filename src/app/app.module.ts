@@ -4,6 +4,8 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { ClarityModule } from '@clr/angular';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LoginComponent } from './login/login.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { SignupComponent } from './signup/signup.component';
 import { HomeComponent } from './home/home.component';
 import { RouterModule } from '@angular/router';
@@ -17,6 +19,8 @@ import { MatcherComponent } from './matcher/matcher.component';
     SignupComponent,
     HomeComponent,
     ErrorComponent,
+    LoginComponent,
+    ErrorComponent,
     MatcherComponent
   ],
   imports: [
@@ -24,7 +28,9 @@ import { MatcherComponent } from './matcher/matcher.component';
     ClarityModule,
     BrowserAnimationsModule,
     RouterModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
