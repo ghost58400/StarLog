@@ -1,7 +1,7 @@
 <div class="clr-row clr-justify-content-center" style="margin-top: 2%">
   <h1>Inscription</h1>
 </div>
-<div class="clr-row clr-justify-content-center" style="margin-top: 2%; margin-right: auto; margin-left: auto">
+<div class="clr-row clr-justify-content-center" style="margin-top: 5%; margin-right: auto; margin-left: auto">
   <form (ngSubmit)="submit()" [formGroup]="form" clrForm >
     <clr-input-container>
       <label class="clr-col-auto">Nom</label>
@@ -29,16 +29,16 @@
     </clr-date-container>
     <div class="clr-row" style="margin-top: 5%">
       <div class="clr-col-auto">
-        <clr-radio-container>
-          <clr-radio-wrapper>
-            <input class="clr-col-auto" clrRadio name="aled" required type="radio" value="jaide"/>
+        <clr-checkbox-container>
+          <clr-checkbox-wrapper>
+            <input class="clr-col-auto" clrCheckbox name="aled" required type="checkbox" value="jaide"/>
             <label class="clr-col-auto">J'aide</label>
-          </clr-radio-wrapper>
-          <clr-radio-wrapper>
-            <input class="clr-col-auto" clrRadio name="aled" required type="radio" value="aled"/>
+          </clr-checkbox-wrapper>
+          <clr-checkbox-wrapper>
+            <input class="clr-col-auto" clrCheckbox name="aled" required type="checkbox" value="aled"/>
             <label class="clr-col-auto">ALED</label>
-          </clr-radio-wrapper>
-        </clr-radio-container>
+          </clr-checkbox-wrapper>
+        </clr-checkbox-container>
       </div>
       <div  style="margin-top: 5%">
         <label class="clr-col-auto clr-align-self-end">Photo de profil</label>
