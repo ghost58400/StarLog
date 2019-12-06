@@ -9,7 +9,7 @@ export class MatcherComponent implements OnInit {
 
   list=[{
     imgSource:"assets/man1.jpg",
-    Desc:"Blablabla, les infos",
+    Desc:"Jeuné diplomé, je peux aider autant dans les matières scolaires (méthématiques, physique) que sur des petites astuces pour mieux organiser son travail personnel afin d'être plus efficace.",
     Ville:"Bourges",
     Nom:"Jean-Cloud",
     likes:true,
@@ -17,7 +17,7 @@ export class MatcherComponent implements OnInit {
     messages:[]
   },{
     imgSource:"assets/girl1.jpg",
-    Desc:"Blablabla, les infos",
+    Desc:"J'habite sur Bourges depuis toujours et je connais tous les établissement dont vous pourriez avoir besoin si vous arrivez juste dans la ville, si vous avez des problèmes financiers, je pourrais vous rediriger vers les organismes qui sauront vous aider facilement",
     Ville:"Bourges",
     Nom:"Jeanine",
     likes:true,
