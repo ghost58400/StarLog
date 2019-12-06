@@ -1,16 +1,7 @@
-import datetime
-import requests
 from flask import Flask, request, jsonify, send_from_directory
-from werkzeug.utils import secure_filename
-from time import time
-import re
 import os
 import json
-from xlrd.xldate import xldate_from_datetime_tuple
-#import secrets
-import importlib
-
-secrets = importlib.import_module('secrets')
+import secrets
 
 app = Flask(__name__)
 
