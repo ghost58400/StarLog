@@ -29,8 +29,18 @@ export class MatcherComponent implements OnInit {
   showLikeAlert=false;
   listIsEmpty=false;
   isMatch=false;
+  profileShown=false;
   match=this.list[0];
   constructor() { }
+  profil={
+    imgSource:"assets/stickman.jpg",
+    Desc:"Jeune Etudiant, je suis nouveau à Bourges et j'aimerais en apprendre d'avantage sur la ville et les facilités réservées aux étudiants",
+    Ville:"Bourges",
+    Nom:"Louis",
+    likes:true,
+    youLike:false,
+    messages:[]
+  }
 
   ngOnInit() {
   }
@@ -59,5 +69,11 @@ export class MatcherComponent implements OnInit {
   }
   closeModal(){
     this.isMatch=false;
+  }
+  showProfile(){
+    this.profileShown=true;
+  }
+  hideProfile(){
+    this.profileShown=false;
   }
 }
