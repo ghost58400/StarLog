@@ -4,27 +4,25 @@ from flask import Flask, request, jsonify
 from time import time
 import re
 import json
-import csv
-from meteocalc import Temp, heat_index
 from xlrd.xldate import xldate_from_datetime_tuple
 import secrets
 
 app = Flask(__name__)
 
-users = dict()
-users['admin'] = 'azerty'
+db_file = 'C:\\Users\\jojo5\\Desktop\\StarLog\\vars.txt'
+
 tokens = list()
 
 def set_var(name, value):
-    with open('vars.txt', 'r') as file:
+    with open(db_file, 'r') as file:
         my_vars = json.load(file)
     my_vars[name] = value
-    with open('vars.txt', 'w') as file:
+    with open(db_file, 'w') as file:
         json.dump(my_vars, file, indent=2)
 
 
 def get_var(name):
-    with open('vars.txt', 'r') as f:
+    with open(db_file, 'r') as f:
         variables = json.load(f)
     try:
         return variables[name]
@@ -35,12 +33,12 @@ def get_var(name):
 def check_token():
     req = request.get_json()
     if req is None or 'token' not in req:
-        return jsonify({'message': 'Token needed'})
+        return jsonify({'status': False})
     token = req['token']
     if token in tokens:
         tokens.remove(token)
         return True
-    return jsonify({'message': 'Bad token'})
+    return jsonify({'status': False})
 
 
 @app.route('/', methods=["GET"])
@@ -55,31 +53,45 @@ def home():
 
 @app.route("/login", methods=["POST"])
 def login():
-    username = request.get_json()['username']
-    password = request.get_json()['password']
+    username = request.form['email']
+    password = request.form['password']
 
+    users = get_var('users')
     if username in users:
         if password == users[username]:
             token = secrets.token_urlsafe()
             tokens.append(token)
-            return jsonify({'token': token, 'message': 'Login successful'})
+            return jsonify({'token': token})
 
-    return jsonify({'message': 'Login failed'})
+    return jsonify({'status': False})
 
 
 @app.route("/logout", methods=["POST"])
 def logout():
     res = check_token()
     if res == True:
-        return jsonify({'message': 'Logged out'})
+        return jsonify({'status': True})
     return res
 
 @app.route("/signup", methods=["POST"])
 def signup():
-    projectpath = request.form['projectFilezpath']
-    return ''
+    nom = request.form['nom']
+    prenom = request.form['prenom']
+    email = request.form['email']
+    password = request.form['password']
+    naissance = request.form['naissance']
+    aled = request.form['aled']
+    myFile = request.form['myFile']
+    users = get_var('users')
+    if email in users:
+        return jsonify({'status': False})
+    users[email] = {'nom': nom, 'prenom': prenom, 'password': password, 'naissance': naissance, 'aled': aled}
+    set_var('users', users)
+    token = secrets.token_urlsafe()
+    tokens.append(token)
+    return jsonify({'token': token})
 
 
 if __name__ == '__main__':
     # app.run(host='0.0.0.0', debug=False)
-    app.run(debug=False)
+    app.run(debug=True)
