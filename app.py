@@ -7,7 +7,10 @@ import re
 import os
 import json
 from xlrd.xldate import xldate_from_datetime_tuple
-import secrets
+#import secrets
+import importlib
+
+secrets = importlib.import_module('secrets')
 
 app = Flask(__name__)
 
