@@ -13,6 +13,11 @@
       <clr-control-error *clrIfError="'required'">Prénom requis</clr-control-error>
     </clr-input-container>
     <clr-input-container>
+      <label class="clr-col-auto">Code postal</label>
+      <input formControlName="codepostal" class="clr-col-auto" clrInput name="codepostal" required type="number"/>
+      <clr-control-error *clrIfError="'required'">Code postal requis</clr-control-error>
+    </clr-input-container>
+    <clr-input-container>
       <label class="clr-col-auto">Mail</label>
       <input formControlName="email" class="clr-col-auto" clrInput name="email" required type="email"/>
       <clr-control-error *clrIfError="'email'">Email invalide</clr-control-error>

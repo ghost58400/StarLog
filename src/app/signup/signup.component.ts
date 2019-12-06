@@ -1,11 +1,16 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
+
+const url = "http://localhost/signup";
+
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css']
 })
+
+
 
 export class SignupComponent {
   form: FormGroup;
@@ -17,7 +22,8 @@ export class SignupComponent {
       prenom: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
-      naissance: ['', Validators.required]
+      naissance: ['', Validators.required],
+      codepostal: ['', Validators.required]
     });
   }
 
