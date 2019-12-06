@@ -4,20 +4,17 @@
   </div>
   <div class="clr-row clr-justify-content-center">
     <form (ngSubmit)="submit()" [formGroup]="form" clrForm>
-      <div class="">
         <clr-input-container>
-          <label>Email</label>
-          <input clrInput formControlName="email" type="email" />
-          <!-- <clr-control-error *clrIfError="'required'">Email Required</clr-control-error> -->
-          <clr-control-error *clrIfError="'email'">Email Invalid</clr-control-error>
+            <label class="clr-col-auto">Email</label>
+            <input class="clr-col-auto" clrInput formControlName="email" type="email" />
+            <clr-control-error *clrIfError="'email'">Email invalide</clr-control-error>
         </clr-input-container>
 
         <clr-password-container>
-          <label>Password</label>
-          <input clrPassword formControlName="password" type="password" />
-          <clr-control-error *clrIfError="'required'">Password Required</clr-control-error>
+            <label class="clr-col-auto">Mot de passe</label>
+            <input class="clr-col-auto" clrPassword formControlName="password" type="password" />
+            <clr-control-error *clrIfError="'required'">Mot de passe requis</clr-control-error>
         </clr-password-container>
-      </div>
       <div class="button1 clr-align-content-center">
         <button class="btn btn-success">Connexion</button>
       </div>
