@@ -27,7 +27,7 @@
       <label class="clr-col-auto">Date de naissance</label>
       <input formControlName="naissance" class="clr-col-auto" clrDate name="naissance" required type="date"/>
     </clr-date-container>
-    <div class="clr-row">
+    <div class="clr-row" style="margin-top: 5%">
       <div class="clr-col-auto">
         <clr-radio-container>
           <clr-radio-wrapper>
@@ -40,16 +40,14 @@
           </clr-radio-wrapper>
         </clr-radio-container>
       </div>
-      <div class="clr-col-auto clr-align-self-end" style="margin-top: 2%">
-        <label>Photo de profil</label>
-        <input type="file" name="myFile">
+      <div  style="margin-top: 5%">
+        <label class="clr-col-auto clr-align-self-end">Photo de profil</label>
+        <div class="clr-col-auto clr-align-self-end"></div>
+        <input class="clr-col-auto clr-align-self-end" type="file" name="myFile">
       </div>
     </div>
-    <div class="clr-row" style="margin-top: 5%">
-      <div class="clr-col-auto"></div>
-      <div class="clr-col-auto clr-align-self-end" >
+    <div class="clr-row clr-justify-content-center" style="margin-top: 10%">
         <button class="btn btn-success" type="submit">S'inscrire</button>
-      </div>
     </div>
   </form>
 </div>
