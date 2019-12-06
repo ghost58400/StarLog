@@ -1,5 +1,6 @@
 .mainMatcher{
     background-color:darkgray;
+    color:black;
 }
 .flexContainer{
     display: flex;
@@ -52,6 +53,7 @@
     border-radius: 50px;
     border-color: #00c890;
     background-color: #00c890;
+    font-weight: 800;
 }
 .btnGoMatch:hover{
     border-color: #00a174;
@@ -82,4 +84,13 @@
 }
 .modal-header{
     text-align: center;
+}
+h2,h3{
+    color:black;
+}
+.shadowBox .card-block{
+    background-color:white;
+}
+p {
+    color:#495865;
 }

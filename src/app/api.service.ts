@@ -13,6 +13,7 @@ const backendUrl = 'http://localhost:5000'; // service REST
   providedIn: 'root'
 })
 export class ApiService {
+  token = '';
 
   constructor(private http: HttpClient) {
   }
@@ -28,8 +29,8 @@ export class ApiService {
 
   signUp(params): Observable<any> {
     return this.http.post(backendUrl+'/signup', params, httpOptions).pipe(
-      tap(() =>
-        console.log(`signed up`)
+      tap((result:any) =>
+        this.token = result.token
       ),
       catchError(this.handleError('signup'))
     );
