@@ -62,18 +62,20 @@ def logout(token):
 
 @app.route("/signup", methods=["POST"])
 def signup():
-    nom = request.form['nom']
-    prenom = request.form['prenom']
-    email = request.form['email']
-    password = request.form['password']
-    naissance = request.form['naissance']
-    aled = request.form['aled']
-    codepostal = request.form['codepostal']
-    myFile = request.form['myFile']
+    nom = request.json['nom']
+    prenom = request.json['prenom']
+    email = request.json['email']
+    password = request.json['password']
+    naissance = request.json['naissance']
+    aled = request.json['aled']
+    jaide = request.json['jaide']
+    codepostal = request.json['codepostal']
+    description = request.json['description']
+    myFile = request.json['myFile']
     users = get_var('users')
     if email in users:
         return jsonify({'status': False})
-    users[email] = {'nom': nom, 'prenom': prenom, 'password': password, 'naissance': naissance, 'aled': aled, 'codepostal': codepostal}
+    users[email] = {'nom': nom, 'prenom': prenom, 'password': password, 'naissance': naissance, 'aled': aled, 'jaide': jaide, 'codepostal': codepostal, 'description': description}
     set_var('users', users)
     token = secrets.token_urlsafe()
     tokens[token]=email
@@ -89,9 +91,7 @@ def matchs(token):
 
     users = get_var('users')
     cp = users[res]['codepostal']
-
     matchs = dict(filter(lambda elem: elem[1]['codepostal'] == cp and elem[0] != res, users.items()))
-
     return jsonify({'token': token, 'matchs': matchs})
 
 
