@@ -25,8 +25,8 @@ export class SignupComponent implements OnInit {
       naissance: ['', Validators.required],
       codepostal: ['', Validators.required],
       description: ['', Validators.required],
-      jaide: [''],
-      aled: ['']
+      jaide: [false],
+      aled: [false]
     });
   }
 
