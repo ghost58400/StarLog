@@ -2,7 +2,7 @@
   <h1>Inscription</h1>
 </div>
 <div class="clr-row clr-justify-content-center" style="margin-top: 5%; margin-right: auto; margin-left: auto">
-  <form (ngSubmit)="submit(form.value)" [formGroup]="form" clrForm >
+  <form (ngSubmit)="submit(form.value)" [formGroup]="form" clrForm>
     <clr-input-container>
       <label class="clr-col-auto">Nom</label>
       <input formControlName="nom" class="clr-col-auto" clrInput name="nom" required type="text"/>
@@ -41,23 +41,23 @@
       <div class="clr-col-auto">
         <clr-checkbox-container>
           <clr-checkbox-wrapper>
-            <input class="clr-col-auto" clrCheckbox name="jaide" required type="checkbox"/>
+            <input class="clr-col-auto" formControlName="jaide" clrCheckbox name="jaide" type="checkbox"/>
             <label class="clr-col-auto">J'aide</label>
           </clr-checkbox-wrapper>
           <clr-checkbox-wrapper>
-            <input class="clr-col-auto" clrCheckbox name="aled" required type="checkbox"/>
+            <input class="clr-col-auto" formControlName="aled" clrCheckbox name="aled" type="checkbox"/>
             <label class="clr-col-auto">ALED</label>
           </clr-checkbox-wrapper>
         </clr-checkbox-container>
       </div>
-      <div  style="margin-top: 5%">
+      <div style="margin-top: 5%">
         <label class="clr-col-auto clr-align-self-end">Photo de profil</label>
         <div class="clr-col-auto clr-align-self-end"></div>
         <input class="clr-col-auto clr-align-self-end" type="file" name="myFile">
       </div>
     </div>
     <div class="clr-row clr-justify-content-center" style="margin-top: 10%">
-        <button class="btn btn-success" type="submit">S'inscrire</button>
+      <button class="btn btn-success" type="submit">S'inscrire</button>
     </div>
   </form>
 </div>
