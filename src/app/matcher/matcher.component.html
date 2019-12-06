@@ -1,3 +1,29 @@
+<div class="modal"  [ngClass]="{'hidden': !profileShown}">
+    <div class="modal-dialog" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button aria-label="Close" class="close" type="button" (click)="hideProfile()">
+                    <clr-icon aria-hidden="true" shape="close"></clr-icon>
+                </button>
+                <h3 class="modal-title">Votre profil</h3>
+            </div>
+            <div class="shadowBox">
+                    <div href="..." class="">
+                        <div class="card-img">
+                            <img [src]="profil.imgSource" alt="..." style="max-height: 300px;" />
+                        </div>
+                        <div class="card-block">
+                            <h3>{{profil.Nom}}</h3>
+                            <p class="card-text">
+                                {{profil.Desc}}
+                            </p>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-backdrop" [ngClass]="{'hidden': !profileShown}" aria-hidden="true"></div>
 <div class="modal"  [ngClass]="{'hidden': !isMatch}">
         <div class="modal-dialog" role="dialog" aria-hidden="true">
             <div class="modal-content">
@@ -51,7 +77,7 @@
                     </div>
         </div>
         <div class="settings">
-                <clr-icon shape="cog" size="35" class="is-solid"></clr-icon>
+                <clr-icon (click)="showProfile()" shape="cog" size="35" class="is-solid"></clr-icon>
         </div>
         <div class="outOfProfile" [ngClass]="{'hidden': !listIsEmpty}">
                 <h1>Désolé,</h1>
