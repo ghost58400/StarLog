@@ -10,7 +10,7 @@
                             <div *ngFor="let item of activeChat.messages">
                                 <div class="bubbleWrapper">
                                         <div class="inlineContainer" [ngClass]="{'own': item.me,'other': !item.me}">
-                                            <img class="inlineIcon" [src]="activeChat.imgSource">
+                                            <clr-icon  class="inlineIcon" shape="user"></clr-icon>
                                             <div class="" [ngClass]="{'own ownBubble': item.me,'other otherBubble': !item.me}">
                                             {{item.content}} 
                                             </div>
