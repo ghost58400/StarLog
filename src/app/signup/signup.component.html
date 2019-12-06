@@ -1,50 +1,54 @@
 <div class="clr-row clr-justify-content-center" style="margin-top: 2%">
   <h1>Inscription</h1>
 </div>
-<div class="clr-row clr-justify-content-center" style="margin-top: 2%">
-  <form clrForm>
+<div class="clr-row clr-justify-content-center" style="margin-top: 2%; margin-right: auto; margin-left: auto">
+  <form (ngSubmit)="submit()" [formGroup]="form" clrForm >
     <clr-input-container>
-      <label class="clr-col-4">Nom</label>
-      <input class="clr-col-8" clrInput name="nom" required type="text"/>
+      <label class="clr-col-auto">Nom</label>
+      <input formControlName="nom" class="clr-col-auto" clrInput name="nom" required type="text"/>
     </clr-input-container>
     <clr-input-container>
-      <label class="clr-col-4">Prénom</label>
-      <input class="clr-col-8" clrInput name="prenom" required type="text"/>
+      <label class="clr-col-auto">Prénom</label>
+      <input formControlName="prenom" class="clr-col-auto" clrInput name="prenom" required type="text"/>
+      <clr-control-error *clrIfError="'required'">Prénom requis</clr-control-error>
     </clr-input-container>
     <clr-input-container>
-      <label class="clr-col-4">Mail</label>
-      <input class="clr-col-8" clrInput name="mail" required type="email"/>
+      <label class="clr-col-auto">Mail</label>
+      <input formControlName="email" class="clr-col-auto" clrInput name="email" required type="email"/>
+      <clr-control-error *clrIfError="'email'">Email invalide</clr-control-error>
+      <clr-control-error *clrIfError="'required'">Email requis</clr-control-error>
     </clr-input-container>
     <clr-password-container>
-      <label class="clr-col-4">Mot de passe</label>
-      <input class="clr-col-8" clrPassword name="password" required type="password"/>
+      <label class="clr-col-auto">Mot de passe</label>
+      <input formControlName="password" class="clr-col-auto" clrPassword name="password" required type="password"/>
+      <clr-control-error *clrIfError="'required'">Mot de passe requis</clr-control-error>
     </clr-password-container>
     <clr-date-container>
-      <label class="clr-col-4">Date de naissance</label>
-      <input class="clr-col-8" clrDate name="naissance" required type="date"/>
+      <label class="clr-col-auto">Date de naissance</label>
+      <input formControlName="naissance" class="clr-col-auto" clrDate name="naissance" required type="date"/>
     </clr-date-container>
     <div class="clr-row">
-      <div class="clr-col-8">
+      <div class="clr-col-auto">
         <clr-radio-container>
           <clr-radio-wrapper>
-            <input class="clr-col-4" clrRadio name="aled" required type="radio" value="jaide"/>
-            <label class="clr-col-8">J'aide</label>
+            <input class="clr-col-auto" clrRadio name="aled" required type="radio" value="jaide"/>
+            <label class="clr-col-auto">J'aide</label>
           </clr-radio-wrapper>
           <clr-radio-wrapper>
-            <input class="clr-col-4" clrRadio name="aled" required type="radio" value="aled"/>
-            <label class="clr-col-8">ALED</label>
+            <input class="clr-col-auto" clrRadio name="aled" required type="radio" value="aled"/>
+            <label class="clr-col-auto">ALED</label>
           </clr-radio-wrapper>
         </clr-radio-container>
       </div>
-      <div class="clr-col-4 clr-align-self-end" style="margin-top: 2%">
+      <div class="clr-col-auto clr-align-self-end" style="margin-top: 2%">
         <label>Photo de profil</label>
         <input type="file" name="myFile">
       </div>
     </div>
     <div class="clr-row" style="margin-top: 5%">
-      <div class="clr-col-8"></div>
-      <div class="clr-col clr-align-self-end" >
-        <button class="btn btn-primary" type="submit">S'inscrire</button>
+      <div class="clr-col-auto"></div>
+      <div class="clr-col-auto clr-align-self-end" >
+        <button class="btn btn-success" type="submit">S'inscrire</button>
       </div>
     </div>
   </form>

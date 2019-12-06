@@ -20,7 +20,6 @@ import { MatcherComponent } from './matcher/matcher.component';
     HomeComponent,
     ErrorComponent,
     LoginComponent,
-    ErrorComponent,
     MatcherComponent
   ],
   imports: [
