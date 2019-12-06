@@ -33,7 +33,7 @@ export class MatcherComponent implements OnInit {
   match=this.list[0];
   constructor() { }
   profil={
-    imgSource:"assets/stickman.jpg",
+    imgSource:"assets/img3.svg",
     Desc:"Jeune Etudiant, je suis nouveau à Bourges et j'aimerais en apprendre d'avantage sur la ville et les facilités réservées aux étudiants",
     Ville:"Bourges",
     Nom:"Louis",
