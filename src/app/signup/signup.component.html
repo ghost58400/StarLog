@@ -2,26 +2,30 @@
   <h1>Inscription</h1>
 </div>
 <div class="clr-row clr-justify-content-center" style="margin-top: 2%">
-  <form clrForm>
+  <form (ngSubmit)="submit()" [formGroup]="form" clrForm clrForm >
     <clr-input-container>
       <label class="clr-col-4">Nom</label>
-      <input class="clr-col-8" clrInput name="nom" required type="text"/>
+      <input formControlName="nom" class="clr-col-8" clrInput name="nom" required type="text"/>
     </clr-input-container>
     <clr-input-container>
       <label class="clr-col-4">Prénom</label>
-      <input class="clr-col-8" clrInput name="prenom" required type="text"/>
+      <input formControlName="prenom" class="clr-col-8" clrInput name="prenom" required type="text"/>
+      <clr-control-error *clrIfError="'required'">Prénom requis</clr-control-error>
     </clr-input-container>
     <clr-input-container>
       <label class="clr-col-4">Mail</label>
-      <input class="clr-col-8" clrInput name="mail" required type="email"/>
+      <input formControlName="email" class="clr-col-8" clrInput name="email" required type="email"/>
+      <clr-control-error *clrIfError="'email'">Email invalide</clr-control-error>
+      <clr-control-error *clrIfError="'required'">Email requis</clr-control-error>
     </clr-input-container>
     <clr-password-container>
       <label class="clr-col-4">Mot de passe</label>
-      <input class="clr-col-8" clrPassword name="password" required type="password"/>
+      <input formControlName="password" class="clr-col-8" clrPassword name="password" required type="password"/>
+      <clr-control-error *clrIfError="'required'">Mot de passe requis</clr-control-error>
     </clr-password-container>
     <clr-date-container>
       <label class="clr-col-4">Date de naissance</label>
-      <input class="clr-col-8" clrDate name="naissance" required type="date"/>
+      <input formControlName="naissance" class="clr-col-8" clrDate name="naissance" required type="date"/>
     </clr-date-container>
     <div class="clr-row">
       <div class="clr-col-8">
