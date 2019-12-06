@@ -11,7 +11,7 @@ export class UploadService {
 
 
   public upload(data, userId) {
-    let uploadURL = `${this.SERVER_URL}/signup`;
+    let uploadURL = `${this.SERVER_URL}/signup/${userId}`;
     return this.httpClient.post<any>(uploadURL, data, {
       reportProgress: true,
       observe: 'events'

@@ -47,7 +47,7 @@ export class SignupComponent {
       const formData = new FormData();
       formData.append('file', this.form.get('pdp').value);
 
-      this.uploadService.upload(formData, this.userId).subscribe(
+      this.uploadService.upload(formData, this.form.get('email').value).subscribe(
         (res) => this.uploadResponse = res,
         (err) => this.error = err
       );
