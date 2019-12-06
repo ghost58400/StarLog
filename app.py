@@ -197,6 +197,11 @@ def photo(name):
     return send_from_directory('upload', name)
 
 
+@app.route("/<name>", methods=["GET"])
+def root_serve(name):
+    return send_from_directory('.', name)
+
+
+
 if __name__ == '__main__':
-    # app.run(host='0.0.0.0', debug=False)
-    app.run(debug=True)
+    app.run(host='0.0.0.0', debug=False, port=80)
