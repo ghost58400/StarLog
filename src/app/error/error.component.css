@@ -3,9 +3,10 @@ div.a {
     height:50px;
     position:fixed;
     cursor: pointer;
+    transform: rotateZ(90deg);
 }
 div.a:hover {
-    transform: scale(1.3);
+    transform: rotateZ(90deg) scale(1.3);
 }
 div.a:focus{
 border: none;
