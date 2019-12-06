@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="clr-row clr-justify-content-center">
+    <h1>Connexion</h1>
+  </div>
+  <div class="clr-row clr-justify-content-center">
+    <form (ngSubmit)="submit()" [formGroup]="form" clrForm>
+      <div class="">
+        <clr-input-container>
+          <label>Email</label>
+          <input clrInput formControlName="email" type="email" />
+          <!-- <clr-control-error *clrIfError="'required'">Email Required</clr-control-error> -->
+          <clr-control-error *clrIfError="'email'">Email Invalid</clr-control-error>
+        </clr-input-container>
+
+        <clr-password-container>
+          <label>Password</label>
+          <input clrPassword formControlName="password" type="password" />
+          <clr-control-error *clrIfError="'required'">Password Required</clr-control-error>
+        </clr-password-container>
+      </div>
+      <div class="button1 clr-align-content-center">
+        <button class="btn btn-success">Connexion</button>
+      </div>
+    </form>
+  </div>
+</div>

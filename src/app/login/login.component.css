@@ -1,0 +1,74 @@
+h1, label, input {
+  color: white;
+}
+
+h1 {
+  font-size: 100px;
+  padding: 100px;
+}
+
+.button1 {
+  text-align: center;
+}
+
+label {
+  font-size: 20px;
+  padding-right: 100px;
+  padding-bottom: 20px;
+}
+
+clr-input-container {
+  padding: 10px;
+}
+
+clr-password-container {
+  padding: 10px;
+}
+
+.btn-success {
+  text-transform: none;
+  background-color: #00b381;
+  border-color: #00b381;
+  color: white;
+  height: auto;
+  padding: 2px;
+  padding-left: 30px;
+  padding-right: 30px;
+  margin-top: 30px;
+  border-radius: 10px;
+}
+
+.btn-success:hover {
+  transform: scale(1.1);
+  background-color: #00b381;
+  border-color: #00b381;
+  color: white;
+}
+
+.btn-success:active {
+  transform: scale(1);
+}
+
+.btn-success-outline {
+  text-transform: none;
+  font-size: 30px;
+  border-color: #00b381;
+  border-width: 3px;
+  background-color: white;
+  color: #00b381;
+  padding-bottom: 0.5em;
+  padding-top: 0.5em;
+  height: auto;
+}
+
+.btn-success-outline:hover {
+  transform: scale(1.1);
+  background-color: white;
+  border-color: #00b381;
+  color: #00b381;
+}
+
+.btn-success-outline:active {
+  transform: scale(1);
+}
+
