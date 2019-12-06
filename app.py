@@ -11,7 +11,7 @@ app = Flask(__name__)
 
 db_file = 'C:\\Users\\jojo5\\Desktop\\StarLog\\vars.txt'
 
-tokens = list()
+tokens = dict()
 
 def set_var(name, value):
     with open(db_file, 'r') as file:
@@ -30,25 +30,12 @@ def get_var(name):
         return None
 
 
-def check_token():
-    req = request.get_json()
-    if req is None or 'token' not in req:
-        return jsonify({'status': False})
-    token = req['token']
+def check_token(token):
     if token in tokens:
-        tokens.remove(token)
-        return True
-    return jsonify({'status': False})
-
-
-@app.route('/', methods=["GET"])
-def home():
-    res = check_token()
-    if res == True:
-        token = secrets.token_urlsafe()
-        tokens.append(token)
-        return jsonify({'token': token, 'message': 'accès accordé'})
-    return res
+        email = tokens[token]
+        del tokens[token]
+        return email
+    return False
 
 
 @app.route("/login", methods=["POST"])
@@ -58,20 +45,20 @@ def login():
 
     users = get_var('users')
     if username in users:
-        if password == users[username]:
+        if password == users[username]['password']:
             token = secrets.token_urlsafe()
-            tokens.append(token)
+            tokens[token]=username
             return jsonify({'token': token})
 
     return jsonify({'status': False})
 
 
-@app.route("/logout", methods=["POST"])
-def logout():
-    res = check_token()
-    if res == True:
-        return jsonify({'status': True})
-    return res
+@app.route("/logout/<token>", methods=["GET"])
+def logout(token):
+    res = check_token(token)
+    if res == False:
+        return jsonify({'status': False})
+    return jsonify({'status': True})
 
 @app.route("/signup", methods=["POST"])
 def signup():
@@ -81,15 +68,31 @@ def signup():
     password = request.form['password']
     naissance = request.form['naissance']
     aled = request.form['aled']
+    codepostal = request.form['codepostal']
     myFile = request.form['myFile']
     users = get_var('users')
     if email in users:
         return jsonify({'status': False})
-    users[email] = {'nom': nom, 'prenom': prenom, 'password': password, 'naissance': naissance, 'aled': aled}
+    users[email] = {'nom': nom, 'prenom': prenom, 'password': password, 'naissance': naissance, 'aled': aled, 'codepostal': codepostal}
     set_var('users', users)
     token = secrets.token_urlsafe()
-    tokens.append(token)
+    tokens[token]=email
     return jsonify({'token': token})
+
+@app.route("/matchs/<token>", methods=["GET"])
+def matchs(token):
+    res = check_token(token)
+    if res == False:
+        return jsonify({'status': False})
+    token = secrets.token_urlsafe()
+    tokens[token]=res
+
+    users = get_var('users')
+    cp = users[res]['codepostal']
+
+    matchs = dict(filter(lambda elem: elem[1]['codepostal'] == cp and elem[0] != res, users.items()))
+
+    return jsonify({'token': token, 'matchs': matchs})
 
 
 if __name__ == '__main__':
