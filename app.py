@@ -201,5 +201,9 @@ def main_page():
     return send_from_directory('.', 'index.html')
 
 
+@app.route("/404", methods=["GET"])
+def main_page_404():
+    return send_from_directory('.', 'index.html')
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=False, port=80)
