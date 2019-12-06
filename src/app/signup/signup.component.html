@@ -23,11 +23,11 @@
       <clr-control-error *clrIfError="'email'">Email invalide</clr-control-error>
       <clr-control-error *clrIfError="'required'">Email requis</clr-control-error>
     </clr-input-container>
-<!--    <clr-input-container>-->
-<!--      <label class="clr-col-auto">Description</label>-->
-<!--      <input formControlName="description" class="clr-col-auto" clrInput name="description" required type="email"/>-->
-<!--      <clr-control-error *clrIfError="'required'">Description requise</clr-control-error>-->
-<!--    </clr-input-container>-->
+    <clr-input-container>
+      <label class="clr-col-auto">Description</label>
+      <input formControlName="description" class="clr-col-auto" clrInput name="description" required type="text"/>
+      <clr-control-error *clrIfError="'required'">Description requise</clr-control-error>
+    </clr-input-container>
     <clr-password-container>
       <label class="clr-col-auto">Mot de passe</label>
       <input formControlName="password" class="clr-col-auto" clrPassword name="password" required type="password"/>
