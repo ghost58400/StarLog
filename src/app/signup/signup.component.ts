@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+declare var $: any;
 
 
 const url = "http://localhost/signup";
@@ -10,9 +11,8 @@ const url = "http://localhost/signup";
   styleUrls: ['./signup.component.css']
 })
 
+export class SignupComponent implements OnInit {
 
-
-export class SignupComponent {
   form: FormGroup;
 
   constructor(private formBuilder: FormBuilder) {
@@ -27,9 +27,17 @@ export class SignupComponent {
     });
   }
 
+  ngOnInit(){
+  }
   submit() {
     if (this.form.valid) {
       console.log(this.form.value);
+      $.ajax({
+        url : 'send',
+        type : 'POST', // Le type de la requête HTTP, ici devenu POST
+        data : JSON.stringify(this.form.value),
+        dataType : 'html'
+     });
     }
   }
 
