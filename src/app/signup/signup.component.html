@@ -11,34 +11,34 @@
     <clr-input-container>
       <label class="clr-col-auto">Prénom</label>
       <input formControlName="prenom" class="clr-col-auto" clrInput name="prenom" required type="text"/>
-      <clr-control-error *clrIfError="'required'"></clr-control-error>
+      <clr-control-error *clrIfError="'required'">Allez sois pas timide</clr-control-error>
     </clr-input-container>
     <clr-input-container>
       <label class="clr-col-auto">Code postal</label>
       <input formControlName="codepostal" class="clr-col-auto" clrInput name="codepostal" required type="number"/>
-      <clr-control-error *clrIfError="'required'">Code postal requis</clr-control-error>
+      <clr-control-error *clrIfError="'required'">On sait où t'habites de toutes façons</clr-control-error>
     </clr-input-container>
     <clr-input-container>
       <label class="clr-col-auto">Mail</label>
       <input formControlName="email" class="clr-col-auto" clrInput name="email" required type="email"/>
-      <clr-control-error *clrIfError="'email'">Email invalide</clr-control-error>
-      <clr-control-error *clrIfError="'required'">Email requis</clr-control-error>
+      <clr-control-error *clrIfError="'email'">Apprend à écrire, l'arobase c'est altGr+à</clr-control-error>
+      <clr-control-error *clrIfError="'required'">T'inquiètes pas on envoie pas de newsletter</clr-control-error>
     </clr-input-container>
     <clr-textarea-container>
       <label class="clr-col-auto">Description</label>
       <textarea formControlName="description" class="clr-col-auto" clrTextarea name="description" required placeholder="Décrivez-vous 🎵"></textarea>
       <!--<clr-control-helper class="clr-col-8">Donnez des informations à propos de vous. </clr-control-helper>-->
-      <clr-control-error *clrIfError="'required'">Description requise</clr-control-error>
+      <clr-control-error *clrIfError="'required'">Sois franc dit-nous tout</clr-control-error>
     </clr-textarea-container>
     <clr-password-container>
       <label class="clr-col-auto">Mot de passe</label>
       <input formControlName="password" class="clr-col-auto" clrPassword name="password" required type="password"/>
-      <clr-control-error *clrIfError="'required'">Mot de passe requis</clr-control-error>
+      <clr-control-error *clrIfError="'required'">C'est pour ta sécurité fais un effort</clr-control-error>
     </clr-password-container>
     <clr-date-container>
       <label class="clr-col-auto">Date de naissance</label>
       <input formControlName="naissance" class="clr-col-auto" clrDate name="naissance" required type="date"/>
-      <clr-control-error *clrIfError="'required'">Prénom requis</clr-control-error>
+      <clr-control-error *clrIfError="'required'">On te souhaitera ton anniversaire</clr-control-error>
     </clr-date-container>
     <div class="clr-row" style="margin-top: 5%">
       <div class="clr-col-auto">
