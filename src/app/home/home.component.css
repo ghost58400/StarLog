@@ -54,6 +54,7 @@
 .banner {
   width: 100%;
   height: 30%;
+  min-height: 270px;
   background-image: url('https://media.discordapp.net/attachments/652227454332567563/652273059184640025/test_banniere.png?width=1442&height=217');
   background-repeat: no-repeat;
   background-size: cover;
@@ -63,5 +64,6 @@
 @media screen and (max-width: 640px) {
   .banner {
     height: 20%;
+    min-height: auto;
   }
 }
