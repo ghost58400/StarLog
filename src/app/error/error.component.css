@@ -1,0 +1,31 @@
+div.a {
+    width: 50px;
+    height:50px;
+    position:fixed;
+    cursor: pointer;
+}
+div.a:hover {
+    transform: scale(1.3);
+}
+div.a:focus{
+border: none;
+outline: none;
+}
+.errorText{
+text-align: center;
+margin-top: 50px;
+}
+.errorText h1{
+    color:#00c890;
+    font-size: 30px;
+    margin-bottom: 20px;;
+}
+.errorText span{
+    color:lightgray;
+}
+.explanation{
+    bottom: 0px;
+    position: fixed;
+    right: 2px;
+    color: #999;
+}
