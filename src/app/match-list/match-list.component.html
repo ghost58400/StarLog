@@ -1,0 +1,56 @@
+    <div class="modal" [ngClass]="{'hidden': !isActive}">
+            <div class="modal-dialog modal-lg" role="dialog" aria-hidden="true">
+                <div class="modal-content">
+                        <div class="modal-header">
+                                <button aria-label="Close" class="close" type="button" (click)="closeModal()">
+                                    <clr-icon aria-hidden="true" shape="close"></clr-icon>
+                                </button>
+                                <h3 class="modal-title">{{activeChat.Nom}}</h3>
+                            </div>
+                            <div *ngFor="let item of activeChat.messages">
+                                <div class="bubbleWrapper">
+                                        <div class="inlineContainer" [ngClass]="{'own': item.me,'other': !item.me}">
+                                            <img class="inlineIcon" [src]="activeChat.imgSource">
+                                            <div class="" [ngClass]="{'own ownBubble': item.me,'other otherBubble': !item.me}">
+                                            {{item.content}} 
+                                            </div>
+                                        </div><span class="" [ngClass]="{'own': item.me,'other': !item.me}">{{item.date}}</span>
+                                    </div>
+                            </div>
+                            <div>
+                                <input id="messageInput" type="text" placeholder="Entrez votre message" class="clr-input" style="width:90%;border:solid 1px grey;border-radius:50px;">
+                                <button (click)="sendMessage()" class="sendButton" style="margin-left: 10px;">
+                                        <clr-icon shape="arrow" dir="right" size="30"></clr-icon>
+                                </button>
+                            </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-backdrop"  [ngClass]="{'hidden': !isActive}" aria-hidden="true"></div>
+
+<div class="mmHead">
+        <h1>Mes Matchs</h1>
+    </div>
+    <div class="clr-row">
+        <div class="clr-col-10 clr-offset-1 whiteInner">
+            <div class="oneMatch clr-row"  *ngFor="let person of list">
+                <div class="clr-col-3">
+                    <img [src]="person.imgSource" alt="" style="position:relative;width:100%;border-radius: 10px;">
+                </div>
+                <div class="clr-col-7">
+                    <h2>{{person.Nom}}</h2>
+                    <span>{{person.Desc}}</span>
+                </div>
+                <div class="buttonAlign clr-col-2 clr-align-items-center">
+                    <a class="messageButton" (click)="openModal(person)">
+                     <clr-icon shape="chat-bubble" size="40" class="is-solid"></clr-icon>
+                    </a>
+                </div>
+            </div>
+            <div class="" style="text-align: center; margin-top:50px;">
+                    <button [routerLink]="['/matcher']" type="button" class="btn btn-icon btn-success btnGoMatch" aria-label="done">
+                            Découvrir de nouvelles connaissances
+                    </button>
+            </div>
+        </div>
+    </div>
