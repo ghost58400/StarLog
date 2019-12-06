@@ -1,6 +1,6 @@
 import datetime
 import requests
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_from_directory
 from time import time
 import re
 import json
@@ -71,15 +71,60 @@ def signup():
     jaide = request.json['jaide']
     codepostal = request.json['codepostal']
     description = request.json['description']
-    myFile = request.json['myFile']
+    pdp = ''#request.json['pdp']
     users = get_var('users')
     if email in users:
         return jsonify({'status': False})
-    users[email] = {'nom': nom, 'prenom': prenom, 'password': password, 'naissance': naissance, 'aled': aled, 'jaide': jaide, 'codepostal': codepostal, 'description': description}
+    users[email] = {'likes': list(), 'dislikes': list(), 'nom': nom, 'prenom': prenom, 'password': password, 'naissance': naissance, 'aled': aled, 'jaide': jaide, 'codepostal': codepostal, 'description': description}
     set_var('users', users)
     token = secrets.token_urlsafe()
     tokens[token]=email
     return jsonify({'token': token})
+
+@app.route("/tinder/<token>", methods=["GET"])
+def tinder(token):
+    res = check_token(token)
+    if res == False:
+        return jsonify({'status': False})
+    token = secrets.token_urlsafe()
+    tokens[token]=res
+
+    users = get_var('users')
+    user = users[res]
+    cp = user['codepostal']
+    likes = user['likes']
+    dislikes = user['dislikes']
+    tinders = dict(filter(lambda elem: elem[1]['codepostal'] == cp and elem[0] != res and elem[0] not in likes and elem[0] not in dislikes, users.items()))
+    return jsonify({'token': token, 'tinder': tinders})
+
+
+@app.route("/like/<email>/<token>", methods=["GET"])
+def like(email, token):
+    res = check_token(token)
+    if res == False:
+        return jsonify({'status': False})
+    token = secrets.token_urlsafe()
+    tokens[token]=res
+
+    users = get_var('users')
+    users[res]['likes'].append(email)
+    set_var('users', users)
+    return jsonify({'token': token, 'status': True})
+
+
+@app.route("/dislike/<email>/<token>", methods=["GET"])
+def dislike(email, token):
+    res = check_token(token)
+    if res == False:
+        return jsonify({'status': False})
+    token = secrets.token_urlsafe()
+    tokens[token]=res
+
+    users = get_var('users')
+    users[res]['dislikes'].append(email)
+    set_var('users', users)
+    return jsonify({'token': token, 'status': True})
+
 
 @app.route("/matchs/<token>", methods=["GET"])
 def matchs(token):
@@ -90,9 +135,40 @@ def matchs(token):
     tokens[token]=res
 
     users = get_var('users')
-    cp = users[res]['codepostal']
-    matchs = dict(filter(lambda elem: elem[1]['codepostal'] == cp and elem[0] != res, users.items()))
+    user = users[res]
+    likes = user['likes']
+    matchs = dict(filter(lambda elem: elem[0] in likes and res in elem[1]['likes'], users.items()))
     return jsonify({'token': token, 'matchs': matchs})
+
+
+#TODO
+@app.route("/send/<token>", methods=["POST"])
+def send(token):
+    res = check_token(token)
+    if res == False:
+        return jsonify({'status': False})
+    token = secrets.token_urlsafe()
+    tokens[token]=res
+
+
+    email = request.json['email']
+    message = request.json['message']
+    messages = get_var('messages')
+
+    matchs = dict(filter(lambda elem: elem[0] in likes and res in elem[1]['likes'], users.items()))
+    return jsonify({'token': token, 'matchs': matchs})
+
+
+@app.route("/secret", methods=["GET"])
+def secret():
+    return send_from_directory('static', 'secret.html')
+
+@app.route("/secret_verif", methods=["GET"])
+def secret_verif():
+    code = request.args['code']
+    if code == '1246':
+        return send_from_directory('static', 'ouvert.html')
+    return 'mauvais code'
 
 
 if __name__ == '__main__':
