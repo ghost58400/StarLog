@@ -202,6 +202,10 @@ def root_serve(name):
     return send_from_directory('.', name)
 
 
+@app.route("/", methods=["GET"])
+def main_page():
+    return send_from_directory('.', 'index.html')
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=False, port=80)
