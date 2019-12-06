@@ -26,7 +26,7 @@
     <clr-textarea-container>
       <label class="clr-col-auto">Description</label>
       <textarea formControlName="description" class="clr-col-auto" clrTextarea name="description" required></textarea>
-      <clr-control-helper>Donnez des informations à propos de vous, tel que ce que vous pourriez apporter aux autres, ou le domaine dans lequel vous avez besoin d'aide.</clr-control-helper>
+      <!--<clr-control-helper class="clr-col-8">Donnez des informations à propos de vous. </clr-control-helper>-->
       <clr-control-error *clrIfError="'required'">Description requise</clr-control-error>
     </clr-textarea-container>
     <clr-password-container>
@@ -52,26 +52,27 @@
         </clr-checkbox-container>
       </div>
       <div style="margin-top: 5%">
-        <div *ngIf="error">
-          {{ error.message }}
-        </div>
-        <div *ngIf="uploadResponse.status === 'error'">
-          {{ uploadResponse.message }}
-        </div>
-        <div *ngIf="uploadResponse.status === 'progress'">
+        <!--        <div *ngIf="error">-->
+        <!--          {{ error.message }}-->
+        <!--        </div>-->
+        <!--        <div *ngIf="uploadResponse.status === 'error'">-->
+        <!--          {{ uploadResponse.message }}-->
+        <!--        </div>-->
+        <!--        <div *ngIf="uploadResponse.status === 'progress'">-->
 
 
-          <div role="progressbar" [style.width.%]="uploadResponse.message" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
-            {{uploadResponse.message}}%
-          </div>
+        <!--          <div role="progressbar" [style.width.%]="uploadResponse.message" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">-->
+        <!--            {{uploadResponse.message}}%-->
+        <!--          </div>-->
 
-        </div>
+
         <label class="clr-col-auto clr-align-self-end">Photo de profil</label>
         <div class="clr-col-auto clr-align-self-end"></div>
         <input class="clr-col-auto clr-align-self-end" type="file" name="pdp" (change)="onFileChange($event)">
-<!--        <button class="btn btn-success" (change)="onFileChange($event)">Upload</button>-->
+        <!--        <button class="btn btn-success" (change)="onFileChange($event)">Upload</button>-->
       </div>
     </div>
+
     <div class="clr-row clr-justify-content-center" style="margin-top: 10%">
       <button class="btn btn-success" type="submit">S'inscrire</button>
     </div>

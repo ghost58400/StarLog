@@ -54,7 +54,7 @@ export class SignupComponent {
       console.log(this.form.value);
       this.api.signUp(form).subscribe(
         res => {
-          // this.router.navigate(['/matcher']);
+          this.router.navigate(['/matcher']);
         },
         err => {
           console.log(err);
