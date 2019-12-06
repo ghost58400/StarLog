@@ -1,0 +1,101 @@
+.mmHead{
+    color: white;
+    text-align: center;
+    margin-top: 30px;
+}
+.mmHead h1{
+    color:white;
+    font-weight: 900;
+}
+.whiteInner{
+    background-color:white;
+    margin-top:50px;
+    margin-bottom: 50px;
+    padding: 50px 50px;
+    position: relative;
+}
+.oneMatch{
+    margin-bottom: 20px;
+    width: 80%;
+    margin-left: 10%;
+}
+.buttonAlign{
+    display: flex;
+}
+.oneMatch h2{
+    margin:0;
+}
+.messageButton{
+    cursor: pointer;
+    color:#00c890;
+}
+.messageButton:hover{
+    color:#00a174;
+}
+.btnGoMatch{
+    border-radius: 50px;
+    border-color: #00c890;
+    background-color: #00c890;
+}
+.btnGoMatch:hover{
+    border-color: #00a174;
+    background-color: #00a174;
+}
+.bubbleWrapper {
+	padding: 10px 10px;
+	display: flex;
+	justify-content: flex-end;
+	flex-direction: column;
+	align-self: flex-end;
+  color: #fff;
+}
+.inlineContainer {
+  display: inline-flex;
+}
+.inlineContainer.own {
+  flex-direction: row-reverse;
+}
+.inlineIcon {
+  width:20px;
+  object-fit: contain;
+}
+.ownBubble {
+	min-width: 60px;
+	max-width: 700px;
+	padding: 14px 18px;
+  margin: 6px 8px;
+	background-color: #00c890;
+	border-radius: 16px 16px 0 16px;
+	border: 1px solid #00c890;
+}
+.otherBubble {
+	min-width: 60px;
+	max-width: 700px;
+	padding: 14px 18px;
+  margin: 6px 8px;
+	background-color: #6C8EA4;
+	border-radius: 16px 16px 16px 0;
+	border: 1px solid #54788e;
+  
+}
+.own {
+	align-self: flex-end;
+}
+.other {
+	align-self: flex-start;
+}
+span.own,
+span.other{
+  font-size: 14px;
+  color: grey;
+}
+.sendButton{
+    border: none;
+    background-color:#00c890;
+    padding: 0;
+    border-radius: 50%;
+    color: white;
+}
+.hidden{
+    display:none;
+}

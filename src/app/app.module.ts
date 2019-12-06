@@ -12,6 +12,7 @@ import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { ErrorComponent } from './error/error.component';
 import { MatcherComponent } from './matcher/matcher.component';
+import { MatchListComponent } from './match-list/match-list.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { MatcherComponent } from './matcher/matcher.component';
     HomeComponent,
     ErrorComponent,
     LoginComponent,
-    MatcherComponent
+    MatcherComponent,
+    MatchListComponent
   ],
   imports: [
     BrowserModule,

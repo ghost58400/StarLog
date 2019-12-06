@@ -24,8 +24,9 @@
                         </div>
                 </div>
                 <div class="modal-footer">
-                <button type="button" class="btn btn-success btnGoMatch" aria-label="done">
-                        Envoyer un message
+                    <span style="max-width: 70%;">Va dès maintenant retrouver ton correspondant dans ta liste de Match pour lui envoyer un message</span>
+                <button type="button" [routerLink]="['/matchList']" class="btn btn-success btnGoMatch" aria-label="done">
+                        Y aller
                 </button>
                 </div>
             </div>
@@ -85,7 +86,7 @@
             </div>
         </div>    
         <div class="" style="text-align: right;">
-                <button type="button" class="btn btn-icon btn-success btnGoMatch" aria-label="done">
+                <button [routerLink]="['/matchList']" type="button" class="btn btn-icon btn-success btnGoMatch" aria-label="done">
                         Mes Matchs
                 </button>
         </div>
