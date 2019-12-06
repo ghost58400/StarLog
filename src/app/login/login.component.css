@@ -5,10 +5,16 @@ h1, label, input {
 h1 {
   font-size: 100px;
   padding: 100px;
+  font-family: 'Noto Sans', sans-serif !important;
 }
 
 .button1 {
   text-align: center;
+}
+
+button {
+  font-size: 20px;
+  font-family: 'Noto Sans', sans-serif !important;
 }
 
 label {
