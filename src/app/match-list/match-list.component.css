@@ -24,6 +24,7 @@
 }
 .oneMatch h2{
     margin:0;
+    color:black
 }
 .messageButton{
     cursor: pointer;
@@ -36,6 +37,7 @@
     border-radius: 50px;
     border-color: #00c890;
     background-color: #00c890;
+    font-weight: 800;
 }
 .btnGoMatch:hover{
     border-color: #00a174;
@@ -98,4 +100,7 @@ span.other{
 }
 .hidden{
     display:none;
+}
+span{
+  color:#495865;
 }

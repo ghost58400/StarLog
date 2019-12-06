@@ -8,7 +8,7 @@
                     <h3 class="modal-title">Bravo, vous avez un match !</h3>
                 </div>
                 <div class="modal-body" style="margin-bottom:10px;">
-                    <p>{{match.Nom}} et vous avez des connaissances à échanger, prenez contact dès maintenant !</p>
+                    <span>{{match.Nom}} et vous avez des connaissances à échanger, prenez contact dès maintenant !</span>
                 </div>
                 <div class="shadowBox">
                         <div href="..." class="">
@@ -63,7 +63,7 @@
         <div class="clr-row" [ngClass]="{'hidden': listIsEmpty}">
             <div class="clr-col-2 flexContainer clr-offset-1">
                     <button (click)="next()" type="button" class="btn btn-icon btn-danger" aria-label="error">
-                            <clr-icon shape="times" size="35" class="is-solid"></clr-icon>
+                            <clr-icon shape="times" size="35" class="is-solid" style="color:white;"></clr-icon>
                         </button>
             </div>
             <div class="clr-col-6 shadowBox">
@@ -81,7 +81,7 @@
             </div>
             <div class="clr-col-2 flexContainer">
                     <button (click)="like()" type="button" class="btn btn-icon btn-success" aria-label="done">
-                            <clr-icon shape="heart" size="35" class="is-solid"></clr-icon>
+                            <clr-icon shape="heart" size="35" class="is-solid" style="color:white;"></clr-icon>
                     </button>
             </div>
         </div>    
