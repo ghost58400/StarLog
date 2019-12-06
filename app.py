@@ -1,8 +1,10 @@
 import datetime
 import requests
-from flask import Flask, request, jsonify, send_from_directory
+from flask import Flask, request, jsonify
+from werkzeug.utils import secure_filename
 from time import time
 import re
+import os
 import json
 from xlrd.xldate import xldate_from_datetime_tuple
 import secrets
@@ -71,7 +73,6 @@ def signup():
     jaide = request.json['jaide']
     codepostal = request.json['codepostal']
     description = request.json['description']
-    pdp = ''#request.json['pdp']
     users = get_var('users')
     if email in users:
         return jsonify({'status': False})
@@ -80,6 +81,22 @@ def signup():
     token = secrets.token_urlsafe()
     tokens[token]=email
     return jsonify({'token': token})
+
+
+@app.route("/signup/<email>", methods=["POST"])
+def signup_pdp(email):
+    file = request.files['file']
+    name, ext = os.path.splitext(file.filename)
+    filename = secrets.token_urlsafe() + ext
+    file.save(os.path.join(os.path.abspath(os.path.dirname(__file__)), 'upload', filename))
+
+    users = get_var('users')
+    if email in users:
+        users[email]['pdp'] = filename
+        set_var('users', users)
+        return jsonify({'status': True})
+    return jsonify({'status': False})
+
 
 @app.route("/tinder/<token>", methods=["GET"])
 def tinder(token):
@@ -166,7 +183,7 @@ def secret():
 @app.route("/secret_verif", methods=["GET"])
 def secret_verif():
     code = request.args['code']
-    if code == '1246':
+    if code == '1435':
         return send_from_directory('static', 'ouvert.html')
     return 'mauvais code'
 
