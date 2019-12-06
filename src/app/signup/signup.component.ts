@@ -31,7 +31,7 @@ export class SignupComponent {
       description: ['', Validators.required],
       jaide: [false],
       aled: [false],
-      pdp: ['']
+      pdp: [null]
     });
   }
 
